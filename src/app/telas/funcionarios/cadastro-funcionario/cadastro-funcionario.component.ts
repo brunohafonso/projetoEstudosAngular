@@ -39,8 +39,10 @@ export class CadastroFuncionarioComponent implements OnInit {
     });
   }
   deletar() {
-
-  }
+    this.FuncionarioService.delete(this.funcionarioSelecionado).subscribe(() => {
+      this.getFuncionarios();
+    });
+    }
   atualizar() {
     this.FuncionarioService.atualizar(this.funcionarioSelecionado).subscribe((funcionarios) => {
        this.getFuncionarios();
