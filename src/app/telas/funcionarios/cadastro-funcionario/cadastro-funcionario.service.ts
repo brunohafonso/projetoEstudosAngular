@@ -18,7 +18,7 @@ import {
 
     constructor(private http: HttpClient) {}
 
-    private urlPost = 'http(s)://5b2e678b47942a001493696b.mockapi.io/funcionarios';
+    private urlPost = 'https://5b2e678b47942a001493696b.mockapi.io/funcionarios';
    
     salvar(funcionario) {
       return  this.http.post(this.urlPost, funcionario);
