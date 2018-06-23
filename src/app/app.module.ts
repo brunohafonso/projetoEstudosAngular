@@ -10,6 +10,7 @@ import { RouterModule } from '@angular/router';
 import { ROUTES } from './app.routes';
 import { CadastroFuncionarioComponent } from './telas/funcionarios/cadastro-funcionario/cadastro-funcionario.component';
 import { FormsModule } from '@angular/forms';
+import { FuncionarioService } from './telas/funcionarios/cadastro-funcionario/cadastro-funcionario.service';
 
 
 
@@ -26,7 +27,9 @@ import { FormsModule } from '@angular/forms';
     RouterModule.forRoot(ROUTES),
     FormsModule
   ],
-  providers: [],
+  providers: [
+    FuncionarioService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
