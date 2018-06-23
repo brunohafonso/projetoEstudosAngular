@@ -43,6 +43,7 @@ export class CadastroFuncionarioComponent implements OnInit {
   deletar() {
     this.FuncionarioService.delete(this.funcionarioSelecionado).subscribe(() => {
       this.getFuncionarios();
+      this.displayDialog = false;
     });
     }
   atualizar() {
