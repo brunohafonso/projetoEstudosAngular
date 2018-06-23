@@ -3,14 +3,18 @@ import { NgModule } from '@angular/core';
 
 
 import { AppComponent } from './app.component';
+import { InicialComponent } from './inicial/inicial.component';
+import { PrimengModule } from './primeng.module';
 
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    InicialComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    PrimengModule
   ],
   providers: [],
   bootstrap: [AppComponent]
