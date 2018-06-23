@@ -1,35 +1,97 @@
 <div class="espacamento">
   <form #form="ngForm" name="form">
-  <div class="row">
-    <div class="espacoCampos col-md-4 col-sm-12">
-      <span class="ui-float-label">
-        <input id="nome" size="30" type="text" pInputText name="nome" [(ngModel)]="funcionario.nome" required/>
-        <label for="nome">Nome *</label>
-      </span>
+    <div class="row">
+      <div class="espacoCampos col-md-4 col-sm-12">
+        <span class="ui-float-label">
+          <input id="nome" size="30" type="text" pInputText name="nome" [(ngModel)]="funcionario.nome" required/>
+          <label for="nome">Nome *</label>
+        </span>
+      </div>
+      <div class="espacoCampos col-md-3 col-sm-12">
+        <span class="ui-float-label">
+          <p-spinner size="10" [(ngModel)]="funcionario.idade" name="idade" required></p-spinner>
+          <label for="idade">Idade *</label>
+        </span>
+      </div>
     </div>
-    <div class="espacoCampos col-md-3 col-sm-12">
-      <span class="ui-float-label">
-        <p-spinner size="10" [(ngModel)]="funcionario.idade" name="idade" required></p-spinner>
-        <label for="idade">Idade *</label>
-      </span>
+    <div class="row">
+      <div class="espacoCampos col-md-4 col-sm-12">
+        <span class="ui-float-label">
+          <input id="idade" size="30" type="text" pInputText [(ngModel)]="funcionario.cargo" name="cargo" required/>
+          <label for="idade">Cargo *</label>
+        </span>
+      </div>
+      <div class="espacoCampos col-md-3 col-sm-12">
+        <span class="ui-float-label">
+          <input id="salario" size="10" type="text" pInputText [(ngModel)]="funcionario.salario" name="salario" />
+          <label for="salario">Salário</label>
+        </span>
+      </div>
     </div>
-  </div>
-  <div class="row">
-    <div class="espacoCampos col-md-4 col-sm-12">
-      <span class="ui-float-label">
-        <input id="idade" size="30" type="text" pInputText [(ngModel)]="funcionario.cargo" name="cargo" required/>
-        <label for="idade">Cargo *</label>
-      </span>
+    <div style="padding-top:20px;">
+      <button pButton type="button" [disabled]="form.invalid" (click)="salvar()" label="Salvar" class="ui-button-success"></button>
     </div>
-    <div class="espacoCampos col-md-3 col-sm-12">
-      <span class="ui-float-label">
-        <input id="salario" size="10" type="text" pInputText [(ngModel)]="funcionario.salario" name="salario"/>
-        <label for="salario">Salário</label>
-      </span>
-    </div>
-  </div>
-  <div style="padding-top:20px;">
-    <button pButton type="button" [disabled]="form.invalid" (click)="salvar()" label="Salvar" class="ui-button-success"></button>
-  </div>
   </form>
+  <div *ngIf="tabelaFuncionarios.length > 0">
+    <p-table [columns]="cols" [value]="tabelaFuncionarios" selectionMode="single" [(selection)]="selectedCar" (onRowSelect)="onRowSelect($event)"
+      [paginator]="true" [rows]="15">
+      <ng-template pTemplate="header" let-columns>
+        <tr>
+          <th *ngFor="let col of columns">
+            {{col.header}}
+          </th>
+        </tr>
+      </ng-template>
+      <ng-template pTemplate="body" let-rowData let-columns="columns">
+        <tr [pSelectableRow]="rowData">
+          <td *ngFor="let col of columns">
+            {{rowData[col.field]}}
+          </td>
+        </tr>
+      </ng-template>
+    </p-table>
+
+    <p-dialog header="Funcionário" [(visible)]="displayDialog" [responsive]="true" showEffect="fade" [modal]="true" [width]="300">
+      <div class="ui-g ui-fluid" *ngIf="funcionarioSelecionado">
+        <div class="ui-g-12">
+          <div class="ui-g-4">
+            <label for="vin">Nome</label>
+          </div>
+          <div class="ui-g-8">
+            <input pInputText id="vin" [(ngModel)]="funcionarioSelecionado.nome" />
+          </div>
+        </div>
+        <div class="ui-g-12">
+          <div class="ui-g-4">
+            <label for="year">Year</label>
+          </div>
+          <div class="ui-g-8">
+            <input pInputText id="year" [(ngModel)]="funcionarioSelecionado.idade" />
+          </div>
+        </div>
+        <div class="ui-g-12">
+          <div class="ui-g-4">
+            <label for="brand">Brand</label>
+          </div>
+          <div class="ui-g-8">
+            <input pInputText id="brand" [(ngModel)]="funcionarioSelecionado.cargo" />
+          </div>
+        </div>
+        <div class="ui-g-12">
+          <div class="ui-g-4">
+            <label for="color">Color</label>
+          </div>
+          <div class="ui-g-8">
+            <input pInputText id="color" [(ngModel)]="funcionarioSelecionado.salario" />
+          </div>
+        </div>
+      </div>
+      <p-footer>
+        <div class="ui-dialog-buttonpane ui-helper-clearfix">
+          <button type="button" pButton (click)="deletar()" label="Apagar"></button>
+          <button type="button" pButton (click)="atualizar()" label="Salvar"></button>
+        </div>
+      </p-footer>
+    </p-dialog>
+  </div>
 </div>

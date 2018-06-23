@@ -11,15 +11,26 @@ export class CadastroFuncionarioComponent implements OnInit {
 
   funcionario: Funcionario;
   tabelaFuncionarios: any[] = [];
+  cols: any[] = [];
+  funcionarioSelecionado: any;
+  displayDialog: boolean
   constructor(private cadastroService: FuncionarioService) {
     this.funcionario = new Funcionario();
   }
 
   ngOnInit() {
+    this.cols = [
+      {header: 'Nome', field:'nome'},
+      {header: 'Idade', field:'idade'},
+      {header: 'Cargo', field:'cargo'},
+      {header: 'Salário', field:'salario'},
+
+    ];
   }
   salvar() {
     this.cadastroService.salvar(this.funcionario).subscribe((funcionarios) => {
       alert('Funcionário Salvo com Sucesso!');
+      this.getFuncionarios();
     });
   }
   getFuncionarios() {
@@ -27,4 +38,22 @@ export class CadastroFuncionarioComponent implements OnInit {
       this.tabelaFuncionarios = tabela;
     });
   }
+  deletar() {
+
+  }
+  atualizar() {
+
+  }
+  onRowSelect(event) {
+    this.funcionarioSelecionado = this.clone(event.data);
+    this.displayDialog = true;
+}
+
+clone(data) {
+    let dataRecebida = {};
+    for (let prop in data) {
+      dataRecebida[prop] = data[prop];
+    }
+    return dataRecebida;
+}
 }

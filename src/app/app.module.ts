@@ -11,6 +11,7 @@ import { ROUTES } from './app.routes';
 import { CadastroFuncionarioComponent } from './telas/funcionarios/cadastro-funcionario/cadastro-funcionario.component';
 import { FormsModule } from '@angular/forms';
 import { FuncionarioService } from './telas/funcionarios/cadastro-funcionario/cadastro-funcionario.service';
+import { HttpClientModule } from '@angular/common/http';
 
 
 
@@ -24,6 +25,7 @@ import { FuncionarioService } from './telas/funcionarios/cadastro-funcionario/ca
   imports: [
     BrowserModule,
     PrimengModule,
+    HttpClientModule,
     RouterModule.forRoot(ROUTES),
     FormsModule
   ],
