@@ -1,7 +1,6 @@
+import { BuscaProdutosService } from './telas/produto/busca-produtos/busca-produtos.service';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
-
 import { AppComponent } from './app.component';
 import { InicialComponent } from './inicial/inicial.component';
 import { PrimengModule } from './primeng.module';
@@ -10,6 +9,10 @@ import { ROUTES } from './app.routes';
 import { BuscaProdutosComponent } from './telas/produto/busca-produtos/busca-produtos.component';
 import { CadastroProdutosService } from './telas/produto/cadastro-produtos/cadastro-produtos.service';
 import { CadastroProdutosComponent } from './telas/produto/cadastro-produtos/cadastro-produtos.component';
+import { CadastroFuncionarioComponent } from './telas/funcionarios/cadastro-funcionario/cadastro-funcionario.component';
+import { FormsModule } from '@angular/forms';
+import { FuncionarioService } from './telas/funcionarios/cadastro-funcionario/cadastro-funcionario.service';
+import { HttpClientModule } from '@angular/common/http';
 
 
 
@@ -18,14 +21,22 @@ import { CadastroProdutosComponent } from './telas/produto/cadastro-produtos/cad
     AppComponent,
     InicialComponent,
     CadastroProdutosComponent,
-    BuscaProdutosComponent
+    BuscaProdutosComponent,
+    CadastroFuncionarioComponent,
+    CadastroProdutosComponent
   ],
   imports: [
     BrowserModule,
     PrimengModule,
-    RouterModule.forRoot(ROUTES)
+    HttpClientModule,
+    RouterModule.forRoot(ROUTES),
+    FormsModule
   ],
-  providers: [CadastroProdutosService],
+  providers: [
+    FuncionarioService,
+    CadastroProdutosService,
+    BuscaProdutosService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
