@@ -4,7 +4,9 @@ import {ButtonModule} from 'primeng/button';
 
 @NgModule({
   imports: [
-    CommonModule,
+    CommonModule
+  ],
+  exports:[
     ButtonModule
   ],
   declarations: []
