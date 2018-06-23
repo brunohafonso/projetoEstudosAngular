@@ -1,10 +1,35 @@
-<div class="containter col-sm-8" align="center">
-  <div clas="row">
-    <div class="col-md-4 col-sm-12">
-        <span class="ui-float-label">
-            <input id="nome" type="text" pInputText [(ngModel)]="funcionario.nome"/>
-            <label for="nome">Nome</label>
-        </span>
+<div class="espacamento">
+  <form #form="ngForm" name="form">
+  <div class="row">
+    <div class="espacoCampos col-md-4 col-sm-12">
+      <span class="ui-float-label">
+        <input id="nome" size="30" type="text" pInputText [(ngModel)]="funcionario.nome" />
+        <label for="nome">Nome</label>
+      </span>
+    </div>
+    <div class="espacoCampos col-md-3 col-sm-12">
+      <span class="ui-float-label">
+        <p-spinner size="10" [(ngModel)]="funcionario.idade"></p-spinner>
+        <label for="idade">Idade</label>
+      </span>
     </div>
   </div>
+  <div class="row">
+    <div class="espacoCampos col-md-4 col-sm-12">
+      <span class="ui-float-label">
+        <input id="idade" size="30" type="text" pInputText [(ngModel)]="funcionario.cargo" />
+        <label for="idade">Cargo</label>
+      </span>
+    </div>
+    <div class="espacoCampos col-md-3 col-sm-12">
+      <span class="ui-float-label">
+        <input id="salario" size="10" type="text" pInputText [(ngModel)]="funcionario.salario" />
+        <label for="salario">Salário</label>
+      </span>
+    </div>
+  </div>
+  <div style="padding-top:20px;">
+    <button pButton type="button" (click)="salvar()" label="Salvar" class="ui-button-success"></button>
+  </div>
+  </form>
 </div>

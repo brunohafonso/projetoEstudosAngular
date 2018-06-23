@@ -1,7 +1,8 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import {ButtonModule,
-        InputTextModule
+        InputTextModule,
+        SpinnerModule,
 } from 'primeng/primeng';
 
 @NgModule({
@@ -10,7 +11,8 @@ import {ButtonModule,
   ],
   exports:[
     ButtonModule,
-    
+    SpinnerModule,
+    InputTextModule    
   ],
   declarations: []
 })
