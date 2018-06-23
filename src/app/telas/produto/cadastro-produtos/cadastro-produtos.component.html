@@ -1,3 +1,23 @@
-<p>
-  cadastro-produtos works!
-</p>
+<h3 class="first">Cadastro de produtos</h3>
+<div class="ui-g ui-fluid">
+    <div class="ui-g-12 ui-md-4">
+        <div class="ui-inputgroup">
+            <span class="ui-inputgroup-addon"> Nome </span>
+            <input type="text" pInputText [(ngModel)]="produto.nome" name="nome">         
+        </div>
+    </div>
+    <div class="ui-g-12 ui-md-4">
+      <div class="ui-inputgroup">
+        <span class="ui-inputgroup-addon"> Descrição </span>
+        <input type="text" pInputText [(ngModel)]="produto.descricao" name="descricao">         
+      </div>
+  </div>
+    <div class="ui-g-12 ui-md-4">
+        <div class="ui-inputgroup">
+            <span class="ui-inputgroup-addon"> R$ </span>
+            <input type="text" pInputText placeholder="Preço" [(ngModel)]="produto.valor" name="valor">   
+            <span class="ui-inputgroup-addon"> .00 </span>       
+        </div>
+    </div>
+    <p-button label="Salvar Dados" (click)="createProduto()"></p-button> 
+</div>
