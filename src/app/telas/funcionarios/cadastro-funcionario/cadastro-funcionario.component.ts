@@ -14,27 +14,27 @@ export class CadastroFuncionarioComponent implements OnInit {
   cols: any[] = [];
   funcionarioSelecionado: any;
   displayDialog: boolean
-  constructor(private cadastroService: FuncionarioService) {
+  constructor(private FuncionarioService: FuncionarioService) {
     this.funcionario = new Funcionario();
   }
 
   ngOnInit() {
     this.cols = [
-      {header: 'Nome', field:'nome'},
-      {header: 'Idade', field:'idade'},
-      {header: 'Cargo', field:'cargo'},
-      {header: 'Salário', field:'salario'},
+      { header: 'Nome', field: 'nome' },
+      { header: 'Idade', field: 'idade' },
+      { header: 'Cargo', field: 'cargo' },
+      { header: 'Salário', field: 'salario' },
 
     ];
   }
   salvar() {
-    this.cadastroService.salvar(this.funcionario).subscribe((funcionarios) => {
+    this.FuncionarioService.salvar(this.funcionario).subscribe((funcionarios) => {
       alert('Funcionário Salvo com Sucesso!');
       this.getFuncionarios();
     });
   }
   getFuncionarios() {
-    this.cadastroService.getFuncionarios().subscribe((tabela: any[]) => {
+    this.FuncionarioService.getFuncionarios().subscribe((tabela: any[]) => {
       this.tabelaFuncionarios = tabela;
     });
   }
@@ -42,18 +42,20 @@ export class CadastroFuncionarioComponent implements OnInit {
 
   }
   atualizar() {
-
+    this.FuncionarioService.atualizar(this.funcionarioSelecionado).subscribe((funcionarios) => {
+       this.getFuncionarios();
+    });
   }
   onRowSelect(event) {
     this.funcionarioSelecionado = this.clone(event.data);
     this.displayDialog = true;
-}
+  }
 
-clone(data) {
+  clone(data) {
     let dataRecebida = {};
     for (let prop in data) {
       dataRecebida[prop] = data[prop];
     }
     return dataRecebida;
-}
+  }
 }
