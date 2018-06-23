@@ -55,34 +55,34 @@
       <div class="ui-g ui-fluid" *ngIf="funcionarioSelecionado">
         <div class="ui-g-12">
           <div class="ui-g-4">
-            <label for="vin">Nome</label>
+            <label for="nome">Nome</label>
           </div>
           <div class="ui-g-8">
-            <input pInputText id="vin" [(ngModel)]="funcionarioSelecionado.nome" />
+            <input pInputText id="nome" [(ngModel)]="funcionarioSelecionado.nome" />
           </div>
         </div>
         <div class="ui-g-12">
           <div class="ui-g-4">
-            <label for="year">Year</label>
+            <label for="idade">Idade</label>
           </div>
           <div class="ui-g-8">
-            <input pInputText id="year" [(ngModel)]="funcionarioSelecionado.idade" />
+            <input pInputText id="idade" type="number" [(ngModel)]="funcionarioSelecionado.idade" />
           </div>
         </div>
         <div class="ui-g-12">
           <div class="ui-g-4">
-            <label for="brand">Brand</label>
+            <label for="cargo">Cargo</label>
           </div>
           <div class="ui-g-8">
-            <input pInputText id="brand" [(ngModel)]="funcionarioSelecionado.cargo" />
+            <input pInputText id="cargo" [(ngModel)]="funcionarioSelecionado.cargo" />
           </div>
         </div>
         <div class="ui-g-12">
           <div class="ui-g-4">
-            <label for="color">Color</label>
+            <label for="salario">Salário</label>
           </div>
           <div class="ui-g-8">
-            <input pInputText id="color" [(ngModel)]="funcionarioSelecionado.salario" />
+            <input pInputText id="salario" type="number" [(ngModel)]="funcionarioSelecionado.salario" />
           </div>
         </div>
       </div>
