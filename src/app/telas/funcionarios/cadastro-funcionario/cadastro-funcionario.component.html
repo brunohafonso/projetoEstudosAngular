@@ -29,7 +29,7 @@
     </div>
   </div>
   <div style="padding-top:20px;">
-    <button pButton type="button" (click)="salvar()" label="Salvar" class="ui-button-success"></button>
+    <button pButton type="button" [disabled]="form.invalid" (click)="salvar()" label="Salvar" class="ui-button-success"></button>
   </div>
   </form>
 </div>
