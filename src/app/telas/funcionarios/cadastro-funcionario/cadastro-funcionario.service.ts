@@ -29,8 +29,8 @@ import {
     getFuncionarios() {
         return this.http.get(this.urlPost);
     }
-    delete(idFuncionario) {
-       return this.http.delete(`${this.urlPost}/${idFuncionario}`);
+    delete(funcionario) {
+       return this.http.delete(`${this.urlPost}/${funcionario.id}`);
     }
 
   }
