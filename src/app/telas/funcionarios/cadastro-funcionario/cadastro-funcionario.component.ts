@@ -26,6 +26,7 @@ export class CadastroFuncionarioComponent implements OnInit {
       { header: 'Salário', field: 'salario' },
 
     ];
+    this.getFuncionarios();
   }
   salvar() {
     this.FuncionarioService.salvar(this.funcionario).subscribe((funcionarios) => {
