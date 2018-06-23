@@ -31,6 +31,7 @@ export class CadastroFuncionarioComponent implements OnInit {
     this.FuncionarioService.salvar(this.funcionario).subscribe((funcionarios) => {
       alert('Funcionário Salvo com Sucesso!');
       this.getFuncionarios();
+      this.funcionario = new Funcionario();
     });
   }
   getFuncionarios() {
@@ -46,6 +47,7 @@ export class CadastroFuncionarioComponent implements OnInit {
   atualizar() {
     this.FuncionarioService.atualizar(this.funcionarioSelecionado).subscribe((funcionarios) => {
        this.getFuncionarios();
+       this.displayDialog = false;
     });
   }
   onRowSelect(event) {

@@ -10,6 +10,7 @@ import { CadastroFuncionarioComponent } from './telas/funcionarios/cadastro-func
 import { FormsModule } from '@angular/forms';
 import { FuncionarioService } from './telas/funcionarios/cadastro-funcionario/cadastro-funcionario.service';
 import { HttpClientModule } from '@angular/common/http';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations'; 
 @NgModule({
   declarations: [
     AppComponent,
@@ -21,6 +22,7 @@ import { HttpClientModule } from '@angular/common/http';
     BrowserModule,
     PrimengModule,
     HttpClientModule,
+    BrowserAnimationsModule,
     RouterModule.forRoot(ROUTES),
     FormsModule
   ],
