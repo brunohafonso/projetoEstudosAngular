@@ -1,7 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
-
 import { AppComponent } from './app.component';
 import { InicialComponent } from './inicial/inicial.component';
 import { PrimengModule } from './primeng.module';
@@ -12,9 +10,6 @@ import { CadastroFuncionarioComponent } from './telas/funcionarios/cadastro-func
 import { FormsModule } from '@angular/forms';
 import { FuncionarioService } from './telas/funcionarios/cadastro-funcionario/cadastro-funcionario.service';
 import { HttpClientModule } from '@angular/common/http';
-
-
-
 @NgModule({
   declarations: [
     AppComponent,
